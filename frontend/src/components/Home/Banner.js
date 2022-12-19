@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../imgs/logo.png";
+import TitleSearch from "./TitleSearch";
 
 const Banner = () => {
   return (
@@ -9,6 +10,7 @@ const Banner = () => {
         <div>
           <span>A place to </span>
           <span id="get-part">get</span>
+          <TitleSearch />
           <span> the cool stuff.</span>
         </div>
       </div>
