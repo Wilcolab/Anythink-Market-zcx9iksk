@@ -6,12 +6,11 @@ import {
 } from "../../constants/actionTypes";
 
 const mapDispatchToProps = (dispatch) => ({
-    onLoad: (tab, pager, payload) =>
-        dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload }),
+    onLoad: (tab, pager, payload, searchQuery) =>
+        dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload, searchQuery }),
 });
 
 class TitleSearch extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = { title: '' };
@@ -27,14 +26,14 @@ class TitleSearch extends React.Component {
     onClick(event) {
         event.preventDefault();
 
-        if (this.state.title < 3) return;
-        const tab = "all";
-        const itemsPromise = agent.Items.all;
+        const searchQuery = this.state.title;
+        if (searchQuery.length < 3) return;
 
         this.props.onLoad(
-            tab,
-            itemsPromise,
-            Promise.all([agent.Tags.getAll(), agent.Items.byTitle(this.state.title)])
+            "all",
+            agent.Items.all,
+            Promise.all([agent.Tags.getAll(), agent.Items.byTitle(this.state.title)]),
+            searchQuery
         );
     }
 

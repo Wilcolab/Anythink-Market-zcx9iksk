@@ -8,7 +8,12 @@ const ItemList = (props) => {
   }
 
   if (props.items.length === 0) {
-    return <div className="py-4 no-items">No items are here... yet.</div>;
+    return (
+      <div className="py-4 no-items" style={{ display: "grid", justifyItems: "center" }}>
+        <i className="bi bi-emoji-frown-fill" style={{ fontSize: "200%" }}></i>
+        <p>No items found for <span id="empty" style={{ display: "inline", "fontWeight": "bold" }}>"{props.searchQuery}"</span></p>
+      </div>
+    );
   }
 
   return (

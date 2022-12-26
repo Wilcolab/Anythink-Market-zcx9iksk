@@ -157,6 +157,7 @@ class Profile extends React.Component {
                 items={this.props.items}
                 itemsCount={this.props.itemsCount}
                 state={this.props.currentPage}
+                searchQuery={this.props.searchQuery}
               />
             </div>
           </div>

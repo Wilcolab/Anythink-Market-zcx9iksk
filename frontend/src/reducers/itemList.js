@@ -55,6 +55,7 @@ const reducer = (state = {}, action) => {
         itemsCount: action.payload[1].itemsCount,
         currentPage: 0,
         tab: action.tab,
+        searchQuery: action.searchQuery,
       };
     case HOME_PAGE_UNLOADED:
       return {};

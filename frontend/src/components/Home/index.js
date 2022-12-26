@@ -21,8 +21,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onClickTag: (tag, pager, payload) =>
     dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
-  onLoad: (tab, pager, payload) =>
-    dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload }),
+  onLoad: (tab, pager, payload, searchQuery) =>
+    dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload, searchQuery }),
   onUnload: () => dispatch({ type: HOME_PAGE_UNLOADED }),
 });
 
@@ -34,7 +34,8 @@ class Home extends React.Component {
     this.props.onLoad(
       tab,
       itemsPromise,
-      Promise.all([agent.Tags.getAll(), itemsPromise()])
+      Promise.all([agent.Tags.getAll(), itemsPromise()]),
+      ""
     );
   }
 
