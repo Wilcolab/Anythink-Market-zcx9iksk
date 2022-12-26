@@ -9,9 +9,9 @@ const ItemList = (props) => {
 
   if (props.items.length === 0) {
     return (
-      <div className="py-4 no-items" style={{ display: "grid", justifyItems: "center" }}>
+      <div id="empty" className="py-4 no-items" style={{ display: "grid", justifyItems: "center" }}>
         <i className="bi bi-emoji-frown-fill" style={{ fontSize: "200%" }}></i>
-        <p id="empty">No items found for <span style={{ display: "inline", "fontWeight": "bold" }}>"{props.searchQuery}"</span></p>
+        <p>No items found for <span style={{ display: "inline", "fontWeight": "bold" }}>"{props.searchQuery}"</span></p>
       </div>
     );
   }
