@@ -22,16 +22,7 @@ class TitleSearch extends React.Component {
         event.preventDefault();
         this.setState({ title: String(event.target.value) }, () => {
             
-            if(this.state.title.length === 0) {
-                this.props.onLoad(
-                    "all",
-                    agent.Items.all,
-                    Promise.all([agent.Tags.getAll(), agent.Items.byTitle(this.state.title)]),
-                    this.state.title
-                );
-            }
-
-            if(this.state.title.length >= 3) {
+            if(this.state.title.length === 0 || this.state.title.length >= 3) {
                 this.props.onLoad(
                     "all",
                     agent.Items.all,
