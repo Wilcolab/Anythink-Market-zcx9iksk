@@ -21,8 +21,8 @@ class TitleSearch extends React.Component {
     handleChange(event) {
         event.preventDefault();
         this.setState({ title: String(event.target.value) }, () => {
-            
-            if(this.state.title.length === 0 || this.state.title.length >= 3) {
+
+            if (this.state.title.length === 0 || this.state.title.length >= 3) {
                 this.props.onLoad(
                     "all",
                     agent.Items.all,
@@ -48,6 +48,8 @@ class TitleSearch extends React.Component {
     }
 
     render() {
+        if (!this.props.clicked) return null;
+        
         return (
             <div className="px-2" style={{ display: "inline" }}>
                 <input type="text" id="search-box" value={this.state.title} onChange={this.handleChange} />
